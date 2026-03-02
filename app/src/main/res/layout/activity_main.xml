@@ -284,11 +284,19 @@
         </com.google.android.material.card.MaterialCardView>
 
         <Button
+            android:id="@+id/buttonHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zobacz Historię"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_marginTop="16dp"/>
+
+        <Button
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Zapisz"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="8dp"/>
 
     </LinearLayout>
 </ScrollView>

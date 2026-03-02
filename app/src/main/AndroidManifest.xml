@@ -20,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="Historia Snu"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Dziennik_snu.NoActionBar" />
     </application>
 
 </manifest>
