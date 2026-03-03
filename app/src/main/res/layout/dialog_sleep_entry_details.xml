@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/detailDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_marginBottom="16dp"
+            android:text="Data"/>
+
+        <!-- Sekcja: Parametry -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parametry"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+            android:textColor="?attr/colorPrimary"/>
+
+        <TextView android:id="@+id/detailBedTime" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pójście do łóżka: "/>
+        <TextView android:id="@+id/detailTimeInBed" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Czas w łóżku: "/>
+        <TextView android:id="@+id/detailSleepTime" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Czas zasypiania: "/>
+        <TextView android:id="@+id/detailAwakenings" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Liczba pobudek: "/>
+        <TextView android:id="@+id/detailAwakeningsDuration" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Długość pobudek: "/>
+        <TextView android:id="@+id/detailWakeUpTime" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="Godzina wstania: "/>
+
+        <!-- Sekcja: Higiena -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Higiena"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+            android:textColor="?attr/colorPrimary"/>
+
+        <TextView android:id="@+id/detailNaps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Drzemki: "/>
+        <TextView android:id="@+id/detailCoffees" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Liczba kaw: "/>
+        <TextView android:id="@+id/detailExercise" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Wysiłek: "/>
+        <TextView android:id="@+id/detailAlcohol" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="Alkohol: "/>
+
+        <!-- Sekcja: Samopoczucie -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samopoczucie"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+            android:textColor="?attr/colorPrimary"/>
+
+        <TextView android:id="@+id/detailSleepQuality" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Jakość snu: "/>
+        <TextView android:id="@+id/detailMorningFeeling" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Samopoczucie rano: "/>
+        <TextView android:id="@+id/detailYesterdayFeeling" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Samopoczucie wczoraj: "/>
+
+    </LinearLayout>
+</ScrollView>

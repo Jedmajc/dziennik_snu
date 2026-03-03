@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dziennik_snu.R
 import com.example.dziennik_snu.data.SleepEntry
 
-class SleepHistoryAdapter : ListAdapter<SleepEntry, SleepHistoryAdapter.SleepEntryViewHolder>(SleepEntryDiffCallback()) {
+class SleepHistoryAdapter(private val onItemClicked: (SleepEntry) -> Unit) : ListAdapter<SleepEntry, SleepHistoryAdapter.SleepEntryViewHolder>(SleepEntryDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SleepEntryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_sleep_entry, parent, false)
@@ -19,6 +19,9 @@ class SleepHistoryAdapter : ListAdapter<SleepEntry, SleepHistoryAdapter.SleepEnt
 
     override fun onBindViewHolder(holder: SleepEntryViewHolder, position: Int) {
         val current = getItem(position)
+        holder.itemView.setOnClickListener {
+            onItemClicked(current)
+        }
         holder.bind(current)
     }
 
@@ -30,7 +33,7 @@ class SleepHistoryAdapter : ListAdapter<SleepEntry, SleepHistoryAdapter.SleepEnt
         fun bind(entry: SleepEntry) {
             dateView.text = entry.date
             qualityView.text = "Jakość snu: ${entry.sleepQuality}/5.0"
-            timeInBedView.text = "Czas w łóżku: ${entry.timeInBed} min"
+            timeInBedView.text = "Czas w łóżku: ${entry.timeInBed ?: 0} min"
         }
     }
 
