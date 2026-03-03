@@ -3,6 +3,7 @@ package com.example.dziennik_snu
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -78,6 +79,21 @@ class HistoryActivity : AppCompatActivity() {
             .setTitle("Szczegóły wpisu")
             .setView(dialogView)
             .setPositiveButton("Zamknij", null)
+            .setNegativeButton("Usuń") { _, _ ->
+                showDeleteConfirmationDialog(entry)
+            }
+            .show()
+    }
+
+    private fun showDeleteConfirmationDialog(entry: SleepEntry) {
+        AlertDialog.Builder(this)
+            .setTitle("Usuwanie wpisu")
+            .setMessage("Czy na pewno chcesz usunąć ten wpis z dnia ${entry.date}?")
+            .setPositiveButton("Usuń") { _, _ ->
+                sleepViewModel.delete(entry)
+                Toast.makeText(this, "Wpis został usunięty", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Anuluj", null)
             .show()
     }
 }
