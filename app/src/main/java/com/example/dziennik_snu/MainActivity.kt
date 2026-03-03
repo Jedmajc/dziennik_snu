@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editTextSleepTime: TextInputEditText
     private lateinit var editTextAwakenings: TextInputEditText
     private lateinit var editTextAwakeningsDuration: TextInputEditText
+    private lateinit var editTextTimeInBedMorning: TextInputEditText
     private lateinit var editTextWakeUpTime: TextInputEditText
     private lateinit var editTextNaps: TextInputEditText
     private lateinit var editTextCoffees: TextInputEditText
@@ -68,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         editTextSleepTime = findViewById(R.id.editTextSleepTime)
         editTextAwakenings = findViewById(R.id.editTextAwakenings)
         editTextAwakeningsDuration = findViewById(R.id.editTextAwakeningsDuration)
+        editTextTimeInBedMorning = findViewById(R.id.editTextTimeInBedMorning)
         editTextWakeUpTime = findViewById(R.id.editTextWakeUpTime)
         editTextNaps = findViewById(R.id.editTextNaps)
         editTextCoffees = findViewById(R.id.editTextCoffees)
@@ -125,6 +127,7 @@ class MainActivity : AppCompatActivity() {
             sleepTime = editTextSleepTime.text.toString().toIntOrNull(),
             awakenings = editTextAwakenings.text.toString().toIntOrNull(),
             awakeningsDuration = editTextAwakeningsDuration.text.toString().toIntOrNull(),
+            timeInBedMorning = editTextTimeInBedMorning.text.toString().toIntOrNull(),
             wakeUpTime = editTextWakeUpTime.text.toString(),
             naps = editTextNaps.text.toString(),
             coffees = editTextCoffees.text.toString().toIntOrNull(),
@@ -137,6 +140,31 @@ class MainActivity : AppCompatActivity() {
 
         sleepViewModel.insert(sleepEntry)
         Toast.makeText(this, "Zapisano wpis do dziennika snu!", Toast.LENGTH_SHORT).show()
+        clearForm()
+    }
+
+    private fun clearForm() {
+        // Reset date to today
+        calendar.timeInMillis = System.currentTimeMillis()
+        updateDateInView()
+        
+        // Clear all EditTexts
+        editTextBedTime.text?.clear()
+        editTextTimeInBed.text?.clear()
+        editTextSleepTime.text?.clear()
+        editTextAwakenings.text?.clear()
+        editTextAwakeningsDuration.text?.clear()
+        editTextTimeInBedMorning.text?.clear()
+        editTextWakeUpTime.text?.clear()
+        editTextNaps.text?.clear()
+        editTextCoffees.text?.clear()
+        editTextExercise.text?.clear()
+        editTextAlcohol.text?.clear()
+
+        // Reset sliders to default (3.0)
+        sliderSleepQuality.value = 3.0f
+        sliderMorningFeeling.value = 3.0f
+        sliderYesterdayFeeling.value = 3.0f
     }
 
     private fun updateDateInView() {

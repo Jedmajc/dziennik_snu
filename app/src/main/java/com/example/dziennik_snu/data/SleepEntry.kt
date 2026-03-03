@@ -13,6 +13,7 @@ data class SleepEntry(
     val sleepTime: Int?, // in minutes
     val awakenings: Int?,
     val awakeningsDuration: Int?, // in minutes
+    val timeInBedMorning: Int?, // NOWE POLE: in minutes
     val wakeUpTime: String,
     val naps: String?,
     val coffees: Int?,

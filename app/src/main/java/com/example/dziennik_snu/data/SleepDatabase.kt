@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [SleepEntry::class], version = 1, exportSchema = false)
+@Database(entities = [SleepEntry::class], version = 2, exportSchema = false)
 abstract class SleepDatabase : RoomDatabase() {
 
     abstract fun sleepDao(): SleepDao
@@ -20,7 +20,9 @@ abstract class SleepDatabase : RoomDatabase() {
                     context.applicationContext,
                     SleepDatabase::class.java,
                     "sleep_database"
-                ).build()
+                )
+                .fallbackToDestructiveMigration() // Resetuje bazę danych przy zmianie schematu
+                .build()
                 INSTANCE = instance
                 instance
             }
