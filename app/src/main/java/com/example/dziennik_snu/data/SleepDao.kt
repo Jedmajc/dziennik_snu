@@ -16,6 +16,7 @@ interface SleepDao {
     @Delete
     suspend fun delete(sleepEntry: SleepEntry)
 
-    @Query("SELECT * FROM sleep_entries ORDER BY date DESC")
+    // Sortowanie po ID malejąco zapewnia, że najnowsze wpisy są na górze
+    @Query("SELECT * FROM sleep_entries ORDER BY id DESC")
     fun getAllEntries(): Flow<List<SleepEntry>>
 }
